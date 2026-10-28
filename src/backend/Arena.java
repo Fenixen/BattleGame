@@ -40,14 +40,14 @@ public class Arena {
         IO.println(warriorA + " starting first");
 
         // battle
-        while (warriorA.isDead() && warriorB.isDead()){
+        while (warriorA.isLive() && warriorB.isLive()){
             warriorA.fight(warriorB);
             status();
             // message of fight
             printMessage(warriorA.getLastMessage());
             // message of defense
             printMessage(warriorB.getLastMessage());
-            if(warriorB.isDead()){
+            if(warriorB.isLive()){
                 warriorB.fight(warriorA);
                 status();
                 printMessage(warriorB.getLastMessage());
@@ -62,9 +62,9 @@ public class Arena {
      */
     private void printWarrior(Warrior warrior){
         IO.println("Warrior: " + warrior);
-        IO.println("-----------------------------");
         IO.println("Health");
         IO.println(warrior.graphicalHealth());
+        IO.println("---------");
 
         if(warrior instanceof Mag){
             IO.println("Mana: ");
@@ -83,7 +83,6 @@ public class Arena {
                 + "(__)(__)(_)\\_)(____)(_)\\_)(__)(__)\n");
         IO.println("Warriors:");
         printWarrior(warriorA);
-        IO.println("---------");
         printWarrior(warriorB);
     }
 

@@ -59,8 +59,8 @@ public class Warrior {
      *
      * @return if the Warrior is dead or not
      */
-    public boolean isDead(){
-        return (health < 0);
+    public boolean isLive(){
+        return (health >= 0);
     }
 
     /**
@@ -85,7 +85,7 @@ public class Warrior {
         String graphicalHealth = "";
         int total = 20;
         double numberOfPieces = Math.round(((double) health / maxHealth) * total);
-        if(numberOfPieces == 0 && !isDead()){
+        if(numberOfPieces == 0 && isLive()){
             numberOfPieces = 1;
         }
         for (int i = 0; i < numberOfPieces; i++){
