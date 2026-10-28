@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Battle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>⚔️ Battle Game</h1>
+    <nav>
+        <a href="/swagger-ui.html" target="_blank">REST API docs</a>
+        <a href="/h2-console" target="_blank">H2 console</a>
+    </nav>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Arena</h2>
+        <div class="row">
+            <select id="fighterA" aria-label="First fighter"></select>
+            <span class="vs">VS</span>
+            <select id="fighterB" aria-label="Second fighter"></select>
+            <button id="fightButton">Fight!</button>
+        </div>
+        <div id="statusBars" class="bars"></div>
+        <ol id="battleLog" class="log"></ol>
+    </section>
+
+    <section class="card">
+        <h2>Fighters</h2>
+        <div class="table-wrap"><table>
+            <thead>
+            <tr><th>Name</th><th>Type</th><th>HP</th><th>DMG</th><th>DEF</th><th>Mana</th><th>Magic</th><th></th></tr>
+            </thead>
+            <tbody id="fighterTable"></tbody>
+        </table></div>
+
+        <h3>New fighter</h3>
+        <form id="fighterForm">
+            <input name="name" placeholder="Name" required>
+            <select name="type">
+                <option value="WARRIOR">Warrior</option>
+                <option value="MAGE">Mage</option>
+            </select>
+            <input name="health" type="number" placeholder="Health" value="100">
+            <input name="damage" type="number" placeholder="Damage" value="30">
+            <input name="defense" type="number" placeholder="Defense" value="10">
+            <input name="mana" type="number" placeholder="Mana" class="mage-only">
+            <input name="magicDamage" type="number" placeholder="Magic damage" class="mage-only">
+            <button type="submit">Create</button>
+        </form>
+        <p id="formError" class="error"></p>
+    </section>
+
+    <section class="card">
+        <h2>Battle history</h2>
+        <ul id="history" class="history"></ul>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
