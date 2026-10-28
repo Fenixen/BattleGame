@@ -58,7 +58,7 @@ public class Arena {
 
     /**
      * print Warrior to console
-     * @param Warrior to print
+     * @param warrior to print
      */
     private void printWarrior(Warrior warrior){
         IO.println("Warrior: " + warrior);
