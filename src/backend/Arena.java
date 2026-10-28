@@ -40,14 +40,14 @@ public class Arena {
         IO.println(warriorA + " starting first");
 
         // battle
-        while (warriorA.isLive() && warriorB.isLive()){
+        while (warriorA.isDead() && warriorB.isDead()){
             warriorA.fight(warriorB);
             status();
             // message of fight
             printMessage(warriorA.getLastMessage());
             // message of defense
             printMessage(warriorB.getLastMessage());
-            if(warriorB.isLive()){
+            if(warriorB.isDead()){
                 warriorB.fight(warriorA);
                 status();
                 printMessage(warriorB.getLastMessage());
